@@ -419,22 +419,27 @@ networking.k8s.io  Ingress     argocd-helm  app-ingress-by-nginx  Synced   Healt
 http://helm.argocd.vmXX.handson.cloudnativedays.jp
 アクセスして確認してみてください。Helmを使ってデプロイが出来ている事が確認できます。
 
-## 作成したデモアプリを削除
-各アプリのDELETEをクリックします
+## 作成したデモアプリケーションを削除
+作成したアプリケーションを削除していきます。
+```
+argocd app delete argocd-demo
+```
+削除して良いか確認して、"y"を入力。
+```
+Are you sure you want to delete 'argocd-demo' and all its resources? [y/n] y
+```
+同様に、他のアプリケーションも削除していきます。
+```
+argocd app delete argocd-kustomize-dev
+```
+```
+argocd app delete argocd-kustomize-prd
+```
+```
+argocd app delete argocd-helm
+```
 
-Applications画面の場合は、一番右下の端に、
-![delete](image/demoapp/Delete-1.png)
-
-詳細画面の場合は、右上の2番目にあります。
-![delete](image/demoapp/Delete-2.png)
-
-削除する際にアプリケーション名の入力があるので入力してOKをクリックします。
-![delete](image/demoapp/Delete-3.png)
-
-全てのアプリケーションを削除して、初めてアクセスした画面と同じようにして下さい。
-![aplication](image/setup/access-webui.png)
-
-namespaceの削除を行います。
+最後に、作成したnamespaceの削除を行います。
 ```
 kubectl delete namespace argocd-demo argocd-kustomize-dev argocd-kustomize-prd argocd-helm
 
