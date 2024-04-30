@@ -252,6 +252,7 @@ Gitの変更をKubernetes Clusterに反映させるためにページ上部に�
 http://app.argocd.vmXX.handson.cloudnativedays.jp
 へアクセスして確認するとタイルが青から緑に変わったことが確認できます。
 ![blue2green](image/demoapp/blue2green-demoapp.png)
+<br>
 ## Kustomizeを使ったデプロイ
 ArgoCD上でマニフェストの管理ツールである「Kustomize」を利用した、開発環境と本番環境の2つのマニフェスト管理を行います。
 
