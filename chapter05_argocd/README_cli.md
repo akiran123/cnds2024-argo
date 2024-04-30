@@ -367,9 +367,6 @@ WebUIでも確認してみると、argocd-kustomise-dev/argocd-kustomise-prdの�
 ## Helmを使ったデプロイ
 KubernetesのパッケージマネージャーのHelmを利用したデプロイを行います。
 
-Applicationsの画面において + NEW APPをクリックします
-![Applications](./image/demoapp/new-app.png)
-上の画面上で各項目を次のように設定します。
 ```
 GENERAL
   Application Name: argocd-helm
