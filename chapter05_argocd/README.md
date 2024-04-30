@@ -364,7 +364,7 @@ helmfile sync  -f helm/helmfile.yaml
 ```
 kubectl get service,deployment  -n argo-cd
 ```
-### argocdcliのインストール
+### argocd cliのインストール
 https://argo-cd.readthedocs.io/en/stable/cli_installation/
 #### Linux
 ```
@@ -388,6 +388,18 @@ rm argocd-darwin-arm64
 ```
 brew install argocd
 ```
+```
+VERSION=$(curl --silent "https://api.github.com/repos/argoproj/argo-cd/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
+```
+
+#### Windows
+Download With PowerShell: Invoke-WebRequest
+```
+$version = (Invoke-RestMethod https://api.github.com/repos/argoproj/argo-cd/releases/latest).tag_name
+```
+[Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Path\To\ArgoCD-CLI", "User")
+```
+
 
 
 ```
