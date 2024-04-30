@@ -140,11 +140,18 @@ ingressを作成し、Argo CDのWEB UIにアクセス出来るようにします
 ```
 kubectl apply -f ingress/ingress.yaml
 ```
-http://argocd.vmXX.handson.cloudnativedays.jp/
-へアクセスします。下記のページにアクセス出来るか確認して下さい。
+
 * ユーザ名: admin
 * パスワード: 以下のコマンドをサーバ上で実行した値
     * `kubectl -n argo-cd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d ; echo`
+```
+argocd login --insecure argocd.vmXX.handson.cloudnativedays.jp
+WARN[0000] Failed to invoke grpc call. Use flag --grpc-web in grpc calls. To avoid this warning message, use flag --grpc-web.
+Username: admin
+Password:
+'admin:login' logged in successfully
+Context 'argocd.vmXX.handson.cloudnativedays.jp' updated
+
 
 ![webui](./image/setup/access-webui.png)
 ### レポジトリの登録
