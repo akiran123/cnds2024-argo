@@ -355,15 +355,6 @@ Create fork をクリックします
 ![fork2](image/setup/fork-3.png)
 
 GitHubのリポジトリの登録やPushはforkした自身のリポジトリを利用して下さい
-### Argo CDのインストール
-helmファイルを利用してArgo CDをインストールします。
-```
-helmfile sync  -f helm/helmfile.yaml
-```
-作成されるリソースは下記の通りです。
-```
-kubectl get service,deployment  -n argo-cd
-```
 ### argocd cliのインストール
 https://argo-cd.readthedocs.io/en/stable/cli_installation/
 #### Linux
@@ -402,7 +393,15 @@ Download With PowerShell: Invoke-WebRequest
 $version = (Invoke-RestMethod https://api.github.com/repos/argoproj/argo-cd/releases/latest).tag_name
 [Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Path\To\ArgoCD-CLI", "User")
 ```
-
+### Argo CDのインストール
+helmファイルを利用してArgo CDをインストールします。
+```
+helmfile sync  -f helm/helmfile.yaml
+```
+作成されるリソースは下記の通りです。
+```
+kubectl get service,deployment  -n argo-cd
+```
 ```
 # 実行結果
 NAME                                               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
