@@ -151,7 +151,7 @@ Username: admin
 Password:
 'admin:login' logged in successfully
 Context 'argocd.vmXX.handson.cloudnativedays.jp' updated
-
+```
 
 ![webui](./image/setup/access-webui.png)
 ### レポジトリの登録
