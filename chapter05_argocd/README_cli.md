@@ -377,20 +377,46 @@ GENERAL
   SYNC POLICY: Manual
   SYNC OPTIONS: AUTO CREATE NAMESPACE [v]
   SOURCE
-    Repository URL: https://github.com/自身のアカウント名/cndt2023-handson
+    Repository URL: https://github.com/自身のアカウント名/cnd-handson
     Revision: main
     Path: chapter05_argocd/app/Helm/rollouts-demo
   DESTINATION
     Cluster URL: https://kubernetes.default.svc
     Namespace: argocd-helm
 ```
-設定できたら、CREATEをクリックします
-![helm-create](./image/demoapp/helm-create.png)
-![helm-create2](./image/demoapp/helm-create2.png)
-ページ上部にある SYNCをクリックします（無事デプロイされると下記のようになります）
-![helm-sync](./image/demoapp/helm-sync.png)
+Helmからアプリを作成します。
+```
+argocd app create argocd-helm --repo https://github.com/自身のアカウント名/cnd-handson --sync-option CreateNamespace=true --path chapter05_argocd/app/Helm/rollouts-demo --dest-server https://kubernetes.default.svc --dest-namespace argocd-helm
+```
+SYNCして、ステータスを確認します。
+```
+argocd app sync argocd-helm
+```
+```
+argocd app get argocd-helm
+```
+```
+Name:               argocd/argocd-helm
+Project:            default
+Server:             https://kubernetes.default.svc
+Namespace:          argocd-helm
+URL:                http://helm.argocd.vmXX.handson.cloudnativedays.jp/applications/argocd-helm
+Repo:               https://github.com/akiran123/cnd-handson
+Target:
+Path:               chapter05_argocd/app/Helm/rollouts-demo
+SyncWindow:         Sync Allowed
+Sync Policy:        <none>
+Sync Status:        Synced to  (935fc73)
+Health Status:      Progressing
+
+GROUP              KIND        NAMESPACE    NAME                  STATUS   HEALTH       HOOK  MESSAGE
+                   Namespace                argocd-helm           Running  Synced             namespace/argocd-helm created
+                   Service     argocd-helm  handson               Synced   Healthy            service/handson created
+apps               Deployment  argocd-helm  handson               Synced   Healthy            deployment.apps/handson created
+networking.k8s.io  Ingress     argocd-helm  app-ingress-by-nginx  Synced   Healthy            ingress.networking.k8s.io/app-ingress-by-nginx created
+```
 ブラウザで
-helm.argocd.vmXX.handson.cloudnativedays.jp
+http://helm.argocd.vmXX.handson.cloudnativedays.jp
 アクセスして確認してみてください。Helmを使ってデプロイが出来ている事が確認できます。
 
 ## 作成したデモアプリを削除
