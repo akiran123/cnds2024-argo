@@ -281,6 +281,7 @@ namespaceの削除を行います。
 ```
 kubectl delete namespace argocd-demo argocd-kustomize-dev argocd-kustomize-prd argocd-helm
 ```
+<br><br>
 
 #### **Argo CD with argocli**
 
