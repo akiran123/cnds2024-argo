@@ -364,6 +364,9 @@ helmfile sync  -f helm/helmfile.yaml
 ```
 kubectl get service,deployment  -n argo-cd
 ```
+argocd
+
+
 ```
 # 実行結果
 NAME                                               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
