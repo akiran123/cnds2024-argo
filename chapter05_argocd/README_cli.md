@@ -183,7 +183,7 @@ git clone https://github.com/自身のアカウント名/cnd-handson.git
 ```
 アプリケーションの追加
 ```
-argocd app create argocd-demo --repo https://github.com/自身のアカウント名/cnd-handson --path chapter05_argocd/app/default --dest-server https://kubernetes.default.svc --dest-namespace argocd-demo
+argocd app create argocd-demo --repo https://github.com/自身のアカウント名/cnd-handson --sync-option CreateNamespace=true --path chapter05_argocd/app/default --dest-server https://kubernetes.default.svc --dest-namespace argocd-demo
 ```
 
 アプリケーションが追加されたことをWebUI上でも確認ができます。
