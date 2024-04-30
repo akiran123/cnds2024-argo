@@ -145,10 +145,11 @@ kubectl apply -f ingress/ingress.yaml
 * パスワード: 以下のコマンドをサーバ上で実行した値
     * `kubectl -n argo-cd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d ; echo`
 
-argocdへログイン
+## argocdへログイン
 ```
 argocd login --insecure argocd.vmXX.handson.cloudnativedays.jp
 ```
+ログイン成功時
 ```
 WARN[0000] Failed to invoke grpc call. Use flag --grpc-web in grpc calls. To avoid this warning message, use flag --grpc-web.
 Username: admin
@@ -156,12 +157,15 @@ Password:
 'admin:login' logged in successfully
 Context 'argocd.vmXX.handson.cloudnativedays.jp' updated
 ```
-
+以下のように、WebUIでログインした状態と同じです。
 ![webui](./image/setup/access-webui.png)
 ### レポジトリの登録
 
 同期させるGitのレポジトリを登録します。
-
+```
+argocd repo add https://github.com/akiran123/cndt2023-handson
+```
+以下のように、WebUIで実施した状態と同様です。
 Settings - > Repositories と進み CONEECT REPOをクリックします　
 ![CONEECT REPO](./image/setup/add-repo-setting.png)
 上の画面上で各項目を次のように設定
