@@ -393,6 +393,7 @@ Download With PowerShell: Invoke-WebRequest
 $version = (Invoke-RestMethod https://api.github.com/repos/argoproj/argo-cd/releases/latest).tag_name
 [Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Path\To\ArgoCD-CLI", "User")
 ```
+
 ### Argo CDのインストール
 helmファイルを利用してArgo CDをインストールします。
 ```
