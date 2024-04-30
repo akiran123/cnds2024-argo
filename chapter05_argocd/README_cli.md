@@ -255,6 +255,9 @@ http://app.argocd.vmXX.handson.cloudnativedays.jp
 <br>
 ## Kustomizeを使ったデプロイ
 ArgoCD上でマニフェストの管理ツールである「Kustomize」を利用した、開発環境と本番環境の2つのマニフェスト管理を行います。
+Kustomize とは、Kuberbets コミュニティの sig-cli が提供しているマニフェストのテンプレーティングツールです。
+環境ごとにマニフェストを生成したり、特定のフィールドを上書きするといった機能が提供されており、効率的にマニフェストを作ることができます。
+
 
 Applicationsの画面において + NEW APPをクリックし、本番環境・開発環境それぞれのアプリケーションを作成します。
 [Applications](./image/demoapp/new-app.png)
@@ -268,7 +271,7 @@ GENERAL
   SYNC POLICY: Manual
   SYNC OPTIONS: AUTO CREATE NAMESPACE [v]
   SOURCE
-    Repository URL: https://github.com/自身のアカウント名/cndt2023-handson
+    Repository URL: https://github.com/自身のアカウント名/cnd-handson
     Revision: main
     Path:
       開発環境: chapter05_argocd/app/Kustomize/overlays/dev
@@ -279,6 +282,11 @@ GENERAL
       開発環境: argocd-kustomize-dev
       本番環境: argocd-kustomize-prd
 ```
+本番環境のアプリを作成します。
+```
+argocd app create argocd-kustomize-dev --repo https://github.com/自身のアカウント名/cnd-handson --sync-option CreateNamespace=true --path chapter05_argocd/app/Kustomize/overlays/dev --dest-server https://kubernetes.default.svc --dest-namespace argocd-kustomize-dev
+```
+
 設定できたら、CREATEをクリックします
 ![Kustomize-create](image/demoapp/Kustomize-create.png)
 ### 開発環境
