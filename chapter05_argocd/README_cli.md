@@ -205,7 +205,7 @@ Name:               argocd/argocd-demo
 Project:            default
 Server:             https://kubernetes.default.svc
 Namespace:          argocd-demo
-URL:                https://argo.lab.f5jp-handson.net/applications/argocd-demo
+URL:                https://argo.argocd.vmXX.handson.cloudnativedays.jp/applications/argocd-demo
 Repo:               https://github.com/akiran123/cnd-handson
 Target:
 Path:               chapter05_argocd/app/default
@@ -291,14 +291,16 @@ SYNCして、ステータスを確認します。
 argocd app sync argocd-kustomize-dev
 ```
 ```
-argocd app get argocd-demo
+argocd app get argocd-kustomize-dev
 ```
+```
+# 実行結果
 Name:               argocd/argocd-kustomize-dev
 Project:            default
 Server:             https://kubernetes.default.svc
 Namespace:          argocd-kustomize-dev
-URL:                https://argo.lab.f5jp-handson.net/applications/argocd-kustomize-dev
-Repo:               https://github.com/akiran123/cnd-handson
+URL:                https://dev.kustomize.argocd.vmXX.handson.cloudnativedays.jp/applications/argocd-kustomize-dev
+Repo:               https://github.com/自身のアカウント/cnd-handson
 Target:
 Path:               chapter05_argocd/app/Kustomize/overlays/dev
 SyncWindow:         Sync Allowed
@@ -309,14 +311,40 @@ Health Status:      Progressing
 GROUP              KIND        NAMESPACE             NAME                  STATUS  HEALTH       HOOK  MESSAGE
                    Service     argocd-kustomize-dev  handson               Synced  Healthy            service/handson unchanged
 apps               Deployment  argocd-kustomize-dev  handson               Synced  Healthy            deployment.apps/handson unchanged
-networking.k8s.io  Ingress     argocd-kustomize-dev  app-ingress-by-nginx  Synced  Progressing        ingress.networking.k8s.io/app-ingress-by-nginx unchanged
+networking.k8s.io  Ingress     argocd-kustomize-dev  app-ingress-by-nginx  Synced  Healthy            ingress.networking.k8s.io/app-ingress-by-nginx unchanged
 ```
 
 本番環境のアプリを作成します。
 ```
 argocd app create argocd-kustomize-prd --repo https://github.com/自身のアカウント名/cnd-handson --sync-option CreateNamespace=true --path chapter05_argocd/app/Kustomize/overlays/prd --dest-server https://kubernetes.default.svc --dest-namespace argocd-kustomize-prd
 ```
+SYNCして、ステータスを確認します。
+```
+argocd app sync argocd-kustomize-prd
+```
+```
+argocd app get argocd-kustomize-prd
+```
+```
+# 実行結果
+Name:               argocd/argocd-kustomize-prd
+Project:            default
+Server:             https://kubernetes.default.svc
+Namespace:          argocd-kustomize-prd
+URL:                http://prd.kustomize.argocd.vmXX.handson.cloudnativedays.jp/applications/argocd-kustomize-prd
+Repo:               https://github.com/自身のアカウント/cnd-handson
+Target:
+Path:               chapter05_argocd/app/Kustomize/overlays/prd
+SyncWindow:         Sync Allowed
+Sync Policy:        <none>
+Sync Status:        Synced to  (935fc73)
+Health Status:      Progressing
 
+GROUP              KIND        NAMESPACE             NAME                  STATUS  HEALTH       HOOK  MESSAGE
+                   Service     argocd-kustomize-prd  handson               Synced  Healthy            service/handson unchanged
+apps               Deployment  argocd-kustomize-prd  handson               Synced  Healthy            deployment.apps/handson unchanged
+networking.k8s.io  Ingress     argocd-kustomize-prd  app-ingress-by-nginx  Synced  Healthy            ingress.networking.k8s.io/app-ingress-by-nginx unchanged
+```
 
 
 設定できたら、CREATEをクリックします
