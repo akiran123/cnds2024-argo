@@ -185,11 +185,38 @@ git clone https://github.com/自身のアカウント名/cnd-handson.git
 argocd app create argocd-demo --repo https://github.com/自身のアカウント名/cnd-handson --path chapter05_argocd/app/default --dest-server https://kubernetes.default.svc --dest-namespace argocd-demo
 ```
 
-設定できたら、CREATEをクリックして、下記のように表示されていることを確認して下さい。
+アプリケーションが追加されたことをWebUI上でも確認ができます。
 ![create](./image/demoapp/create.png)
 ![create2](./image/demoapp/create2.png)
 
-ページ上部にあるSYNCをクリックして、無事デプロイされると下記のように表示されていることを確認して下さい。
+SYNCして、無事デプロイされると下記のように表示されていることを確認して下さい。
+```
+argocd app sync argocd-demo
+```
+アプリケーションのステータス確認
+```
+argocd app get argocd-demo
+```
+```
+Name:               argocd/argocd-demo
+Project:            default
+Server:             https://kubernetes.default.svc
+Namespace:          argocd-demo
+URL:                https://argo.lab.f5jp-handson.net/applications/argocd-demo
+Repo:               https://github.com/akiran123/cnd-handson
+Target:
+Path:               chapter05_argocd/app/default
+SyncWindow:         Sync Allowed
+Sync Policy:        <none>
+Sync Status:        Synced to  (6f6c4ef)
+Health Status:      Progressing
+
+GROUP              KIND        NAMESPACE    NAME                  STATUS  HEALTH       HOOK  MESSAGE
+                   Service     argocd-demo  handson               Synced  Healthy            service/handson created
+apps               Deployment  argocd-demo  handson               Synced  Healthy            deployment.apps/handson created
+networking.k8s.io  Ingress     argocd-demo  app-ingress-by-nginx  Synced  Healthy            ingress.networking.k8s.io/app-ingress-by-nginx created
+```
+
 
 ![sync](./image/demoapp/sync.png)
 ブラウザから
