@@ -184,22 +184,7 @@ git clone https://github.com/自身のアカウント名/cnd-handson.git
 ```
 argocd app create argocd-demo --repo https://github.com/自身のアカウント名/cnd-handson --path chapter05_argocd/app/default --dest-server https://kubernetes.default.svc --dest-namespace argocd-demo
 ```
-Applicationsの画面において + NEW APPをクリックします![Applications](./image/demoapp/new-app.png)
-上の画面上で各項目を次のように設定します。
 
-GENERAL
-  Application Name: argocd-demo
-  Project Name: default
-  SYNC POLICY: Manual
-  SYNC OPTIONS: AUTO CREATE NAMESPACE [v]
-  SOURCE
-    Repository URL: https://github.com/自身のアカウント名/cndt2023-handson
-    Revision: main
-    Path: chapter05_argocd/app/default
-  DESTINATION
-    Cluster URL: https://kubernetes.default.svc
-    Namespace: argocd-demo
-```
 設定できたら、CREATEをクリックして、下記のように表示されていることを確認して下さい。
 ![create](./image/demoapp/create.png)
 ![create2](./image/demoapp/create2.png)
