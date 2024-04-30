@@ -152,6 +152,7 @@ argocd login --insecure argocd.vmXX.handson.cloudnativedays.jp
 ```
 ログイン成功時
 ```
+# 実行結果
 WARN[0000] Failed to invoke grpc call. Use flag --grpc-web in grpc calls. To avoid this warning message, use flag --grpc-web.
 Username: admin
 Password: (上記kubectlを実行して返ってきた値)
@@ -197,7 +198,9 @@ argocd app sync argocd-demo
 ```
 argocd app get argocd-demo
 ```
+argocd-demoアプリケーションが動作していること
 ```
+# 実行結果
 Name:               argocd/argocd-demo
 Project:            default
 Server:             https://kubernetes.default.svc
@@ -225,7 +228,7 @@ http://app.argocd.vmXX.handson.cloudnativedays.jp
 
 ![demo app](./image/demoapp/demo-app.png)
 
-上記の手順でGitに保存しているマニフェストを参照して、アプリケーションのデプロイを行いました。次にGitの変更にKubernetes Clusterを同期させます。
+上記の手順でGitに保存しているマニフェストを参照して、アプリケーションのデプロイを行いました。次にGitにあるmanifest変更Kubernetes Clusterを同期させます。
 
 app/default/deployment.yamlの編集を行います。 imageのtagをblueからgreenに変更します。
 ```
@@ -236,6 +239,13 @@ image: argoproj/rollouts-demo:green
 git push origin main
 ```
 Argo CDはデフォルトでは3分に一回の頻度でブランチを確認し、差分を検出しています。 3分待てない場合には、ページ上部にある [REFRESH]をクリックします。下記のようにdeploymentにおいて差分が検出されます。（黄色で表示されているOutOfSyncが差分があることを示しています） ちなみにAppの設定において、SYNC POLICYをManualでなくAutoにしていた場合には、ここでOutOfSyncを検知すると自動でArgoCDがSyncを実行します。
+<br>
+SYNCして、青色 → 緑色のタイルに変わるることを確認して下さい。
+```
+argocd app sync argocd-demo
+```
+
+もちろん、WebUIから設定することも可能です。
 ![blue2green](image/demoapp/blue2green.png)
 Gitの変更をKubernetes Clusterに反映させるためにページ上部にあるSYNCをクリックして、下記のように表示されていることを確認して下さい。
 ![blue2green](image/demoapp/blue2green-sync.png)
