@@ -290,6 +290,7 @@ SYNCして、ステータスを確認します。
 ```
 argocd app sync argocd-kustomize-dev
 ```
+```
 argocd app get argocd-demo
 ```
 Name:               argocd/argocd-kustomize-dev
