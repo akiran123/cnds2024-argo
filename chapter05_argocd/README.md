@@ -3,8 +3,8 @@
 
 
 ### https://akiran123.github.io/cnds2024-argo/chapter05_argocd/#/ にアクセスしてもらえれば、
-### TAB（）を選択することで選ぶことができます。
-
+### TAB（Argo CD with GUI or Argo CD with argocli）を選択することで選ぶことができます。
+<br><br>
 
 
 
