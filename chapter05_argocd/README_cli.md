@@ -61,7 +61,7 @@ Kubernetes clusterをGitの状態に同期させるため、マニフェスト�
 ### Gitリポジトリの準備(ローカル環境)
 Argo CDを利用する上では、GitHubへのPush等の変更が必要不可欠になります。そのため、このハンズオンのリポジトリをforkして操作する為の準備をします。
 
-[このハンズオン](https://github.com/cloudnativedaysjp/cndt-handson)にアクセスし、forkをクリックします
+[このハンズオン](https://github.com/cloudnativedaysjp/cnd-handson)にアクセスし、forkをクリックします
 ![fork1](image/setup/fork-1-new.png)
 
 Create fork をクリックします
@@ -164,7 +164,7 @@ Context 'argocd.vmXX.handson.cloudnativedays.jp' updated
 
 同期させるGitのレポジトリを登録します。
 ```
-argocd repo add https://github.com/<自分のgithubアカウント>/cndt-handson
+argocd repo add https://github.com/<自分のgithubアカウント>/cnd-handson
 ```
 以下のように、WebUIでSettings - > Repositories と進み CONEECT REPOをクリックした状態と同様。
 ![CONNECT REPO](./image/setup/add-repo-setting_cli.png)
@@ -173,7 +173,7 @@ argocd repo add https://github.com/<自分のgithubアカウント>/cndt-handson
 Choose your connection method: VIA HTTPS
 Type: git
 Project: default
-Repository URL: https://github.com/自身のアカウント名/cndt-handson
+Repository URL: https://github.com/自身のアカウント名/cnd-handson
 ```
 GUIでも、下記のように表示されていることをWebUI上でも確認して下さい。
 ![CONNECT](./image/setup/add-repo-complete_cli.png)
