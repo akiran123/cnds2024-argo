@@ -154,7 +154,7 @@ argocd login --insecure argocd.vmXX.handson.cloudnativedays.jp
 ```
 WARN[0000] Failed to invoke grpc call. Use flag --grpc-web in grpc calls. To avoid this warning message, use flag --grpc-web.
 Username: admin
-Password:
+Password: (上記kubectlを実行して返ってきた値)
 'admin:login' logged in successfully
 Context 'argocd.vmXX.handson.cloudnativedays.jp' updated
 ```
@@ -175,7 +175,7 @@ Type: git
 Project: default
 Repository URL: https://github.com/自身のアカウント名/cnd-handson
 ```
-GUIでも、下記のように表示されていることをWebUI上でも確認して下さい。
+GUIでも、下記のように表示されていることをWebUI上でもRepositoryが登録されていることも確認してください。
 ![CONNECT](./image/setup/add-repo-complete_new.png)
 
 
@@ -184,8 +184,12 @@ GUIでも、下記のように表示されていることをWebUI上でも確認
 
 Argo CDに同期させるGitリポジトリをを準備します。
 ```bash
-git clone https://github.com/自身のアカウント名/cndt2023-handson.git
+git clone https://github.com/自身のアカウント名/cnd-handson.git
 ```
+アプリケーションの追加
+```
+argocd app create argocd-demo --repo https://github.com/自身のアカウント名/cnd-handson --path chapter05_argocd/app/default --dest-server https://kubernetes.default.svc --dest-namespace argocd-demo
+
 Applicationsの画面において + NEW APPをクリックします![Applications](./image/demoapp/new-app.png)
 上の画面上で各項目を次のように設定します。
 ```
