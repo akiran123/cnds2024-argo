@@ -167,7 +167,7 @@ argocd repo add https://github.com/akiran123/cndt2023-handson
 ```
 以下のように、WebUIで実施した状態と同様です。
 Settings - > Repositories と進み CONEECT REPOをクリックします　
-![CONEECT REPO](./image/setup/add-repo-setting.png)
+![CONEECT REPO](./image/setup/add-repo-setting_cli.png)
 上の画面上で各項目を次のように設定
 ```
 Choose your connection method: VIA HTTPS
@@ -176,7 +176,7 @@ Project: default
 Repository URL: https://github.com/自身のアカウント名/cndt2023-handson
 ```
 CONNECTをクリックして、下記のように表示されていることを確認して下さい。
-![CONNECT](./image/setup/add-repo-complete.png)
+![CONNECT](./image/setup/add-repo-complete_cli.png)
 
 
 ## デモアプリのデプロイ
