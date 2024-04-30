@@ -168,13 +168,7 @@ argocd repo add https://github.com/<自分のgithubアカウント>/cnd-handson
 ```
 以下のように、WebUIでSettings - > Repositories と進み CONEECT REPOをクリックした状態と同様。
 ![CONNECT REPO](./image/setup/add-repo-setting_new.png)
-上の画面上で各項目を次のように設定
-```
-Choose your connection method: VIA HTTPS
-Type: git
-Project: default
-Repository URL: https://github.com/自身のアカウント名/cnd-handson
-```
+
 GUIでも、下記のように表示されていることをWebUI上でもRepositoryが登録されていることも確認してください。
 ![CONNECT](./image/setup/add-repo-complete_new.png)
 
@@ -189,10 +183,10 @@ git clone https://github.com/自身のアカウント名/cnd-handson.git
 アプリケーションの追加
 ```
 argocd app create argocd-demo --repo https://github.com/自身のアカウント名/cnd-handson --path chapter05_argocd/app/default --dest-server https://kubernetes.default.svc --dest-namespace argocd-demo
-
+```
 Applicationsの画面において + NEW APPをクリックします![Applications](./image/demoapp/new-app.png)
 上の画面上で各項目を次のように設定します。
-```
+
 GENERAL
   Application Name: argocd-demo
   Project Name: default
