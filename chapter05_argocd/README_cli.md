@@ -144,8 +144,12 @@ kubectl apply -f ingress/ingress.yaml
 * ユーザ名: admin
 * パスワード: 以下のコマンドをサーバ上で実行した値
     * `kubectl -n argo-cd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d ; echo`
+
+argocdへログイン
 ```
 argocd login --insecure argocd.vmXX.handson.cloudnativedays.jp
+```
+```
 WARN[0000] Failed to invoke grpc call. Use flag --grpc-web in grpc calls. To avoid this warning message, use flag --grpc-web.
 Username: admin
 Password:
