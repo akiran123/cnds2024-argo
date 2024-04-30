@@ -347,7 +347,7 @@ networking.k8s.io  Ingress     argocd-kustomize-prd  app-ingress-by-nginx  Synce
 ```
 
 
-設定できたら、CREATEをクリックします
+WebUIでも確認してみると、argocd-kustomise-dev/argocd-kustomise-prdの２つのアプリケーションが追加されています。
 ![Kustomize-create](image/demoapp/Kustomize-create.png)
 ### 開発環境
 ![Kustomize-create](image/demoapp/Kustomize-create2-dev.png)
@@ -363,6 +363,7 @@ networking.k8s.io  Ingress     argocd-kustomize-prd  app-ingress-by-nginx  Synce
 ブラウザで各環境へアクセスして確認してみてください。タイルの色が開発環境と本番環境で違う事が確認できます。
   * 開発環境: dev.kustomize.argocd.vmXX.handson.cloudnativedays.jp
   * 本番環境: prd.kustomize.argocd.vmXX.handson.cloudnativedays.jp
+<br>
 ## Helmを使ったデプロイ
 KubernetesのパッケージマネージャーのHelmを利用したデプロイを行います。
 
