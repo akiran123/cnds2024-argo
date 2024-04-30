@@ -2,6 +2,8 @@
 ### 今回２パターンでの方法を準備しています。
 
 
+### https://akiran123.github.io/cnds2024-argo/chapter05_argocd/#/ にアクセスしてもらえれば、
+### TABを選択することで選ぶことができます。
 
 
 
