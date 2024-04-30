@@ -346,6 +346,9 @@ apps               Deployment  argocd-kustomize-prd  handson               Synce
 networking.k8s.io  Ingress     argocd-kustomize-prd  app-ingress-by-nginx  Synced  Healthy            ingress.networking.k8s.io/app-ingress-by-nginx unchanged
 ```
 
+ブラウザで各環境へアクセスして確認してみてください。タイルの色が開発環境と本番環境で違う事が確認できます。
+  * 開発環境: http://dev.kustomize.argocd.vmXX.handson.cloudnativedays.jp
+  * 本番環境: http://prd.kustomize.argocd.vmXX.handson.cloudnativedays.jp
 
 WebUIでも確認してみると、argocd-kustomise-dev/argocd-kustomise-prdの２つのアプリケーションが追加されています。
 ![Kustomize-create](image/demoapp/Kustomize-create.png)
@@ -360,9 +363,6 @@ WebUIでも確認してみると、argocd-kustomise-dev/argocd-kustomise-prdの�
 ![Kustomize-prd](image/demoapp/Kustomize-sync-prd.png)
 
 
-ブラウザで各環境へアクセスして確認してみてください。タイルの色が開発環境と本番環境で違う事が確認できます。
-  * 開発環境: dev.kustomize.argocd.vmXX.handson.cloudnativedays.jp
-  * 本番環境: prd.kustomize.argocd.vmXX.handson.cloudnativedays.jp
 <br>
 ## Helmを使ったデプロイ
 KubernetesのパッケージマネージャーのHelmを利用したデプロイを行います。
