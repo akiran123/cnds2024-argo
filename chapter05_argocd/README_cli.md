@@ -282,10 +282,41 @@ GENERAL
       開発環境: argocd-kustomize-dev
       本番環境: argocd-kustomize-prd
 ```
-本番環境のアプリを作成します。
+開発環境のアプリを作成します。
 ```
 argocd app create argocd-kustomize-dev --repo https://github.com/自身のアカウント名/cnd-handson --sync-option CreateNamespace=true --path chapter05_argocd/app/Kustomize/overlays/dev --dest-server https://kubernetes.default.svc --dest-namespace argocd-kustomize-dev
 ```
+SYNCして、ステータスを確認します。
+```
+argocd app sync argocd-kustomize-dev
+```
+argocd app get argocd-demo
+```
+Name:               argocd/argocd-kustomize-dev
+Project:            default
+Server:             https://kubernetes.default.svc
+Namespace:          argocd-kustomize-dev
+URL:                https://argo.lab.f5jp-handson.net/applications/argocd-kustomize-dev
+Repo:               https://github.com/akiran123/cnd-handson
+Target:
+Path:               chapter05_argocd/app/Kustomize/overlays/dev
+SyncWindow:         Sync Allowed
+Sync Policy:        <none>
+Sync Status:        Synced to  (935fc73)
+Health Status:      Progressing
+
+GROUP              KIND        NAMESPACE             NAME                  STATUS  HEALTH       HOOK  MESSAGE
+                   Service     argocd-kustomize-dev  handson               Synced  Healthy            service/handson unchanged
+apps               Deployment  argocd-kustomize-dev  handson               Synced  Healthy            deployment.apps/handson unchanged
+networking.k8s.io  Ingress     argocd-kustomize-dev  app-ingress-by-nginx  Synced  Progressing        ingress.networking.k8s.io/app-ingress-by-nginx unchanged
+```
+
+本番環境のアプリを作成します。
+```
+argocd app create argocd-kustomize-prd --repo https://github.com/自身のアカウント名/cnd-handson --sync-option CreateNamespace=true --path chapter05_argocd/app/Kustomize/overlays/prd --dest-server https://kubernetes.default.svc --dest-namespace argocd-kustomize-prd
+```
+
+
 
 設定できたら、CREATEをクリックします
 ![Kustomize-create](image/demoapp/Kustomize-create.png)
