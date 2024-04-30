@@ -442,7 +442,7 @@ argocd app delete argocd-helm
 最後に、作成したnamespaceの削除を行います。
 ```
 kubectl delete namespace argocd-demo argocd-kustomize-dev argocd-kustomize-prd argocd-helm
-
+```
 
 
 <!-- tabs:end -->
