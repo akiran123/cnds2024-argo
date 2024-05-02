@@ -205,7 +205,7 @@ argocd app get argocd-demo
 ```
 argocd-demoアプリケーションが動作していること
 ```
-# 実行結果
+# 実行結果例
 Name:               argocd/argocd-demo
 Project:            default
 Server:             https://kubernetes.default.svc
