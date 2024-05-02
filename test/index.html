@@ -1,47 +1,39 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./resources/styles/destyle.css" />
-    <link rel="stylesheet" href="./resources/styles/style.css" />
-  </head>
-  <body>
-    <div class="TabMenu">
-      <ul class="Tabs">
-        <li data-id="Content1" class="Tab Tab__isActive">タブ1</li>
-        <li data-id="Content2" class="Tab">タブ2</li>
-        <li data-id="Content3" class="Tab">タブ3</li>
-      </ul>
-      <ul class="Contents">
-        <li id="Content1" class="Content Content__isActive">
-          1番目のコンテンツ
-        </li>
-        <li id="Content2" class="Content">2番目のコンテンツ</li>
-        <li id="Content3" class="Content">3番目のコンテンツ</li>
-      </ul>
+<div class="wrap-tab">
+  <input id="tab-radio1" class="tab-radio" name="tab" type="radio" checked>
+  <input id="tab-radio2" class="tab-radio" name="tab" type="radio">
+  <input id="tab-radio3" class="tab-radio" name="tab" type="radio">
+  <input id="tab-radio4" class="tab-radio" name="tab" type="radio">
+  
+  <ul class="list-tab-label">
+    <li>
+      <label id="tab-label1" class="tab-label" for="tab-radio1">タブ1</label>
+    </li>
+    <li>
+      <label id="tab-label2" class="tab-label" for="tab-radio2">タブ2</label>
+    </li>
+    <li>
+      <label id="tab-label3" class="tab-label" for="tab-radio3">タブ3</label>
+    </li>
+    <li>
+      <label id="tab-label4" class="tab-label" for="tab-radio4">タブ4</label>
+    </li>
+  </ul>
+  
+  <div class="wrap-tab-content">
+    <div id="tab-content1" class="tab-content">
+      <p>タブ1タブ1タブ1</p>
     </div>
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      const tabs = $(".Tab")
-      const contents = $(".Content")
 
-      tabs.on("click", function () {
-        tabs.removeClass("Tab__isActive")
-        contents.removeClass("Content__isActive")
-
-        const clickedTab = $(this)
-        clickedTab.addClass("Tab__isActive")
-
-        const id = "#" + clickedTab.data("id")
-        $(id).addClass("Content__isActive")
-      })
-    </script>
-  </body>
-</html>
+    <div id="tab-content2" class="tab-content">
+      <p>タブ2タブ2タブ2</p>
+    </div>
+    
+    <div id="tab-content3" class="tab-content">
+      <p>タブ3タブ3タブ3</p>
+    </div>
+    
+    <div id="tab-content4" class="tab-content">
+      <p>タブ4タブ4タブ4</p>
+    </div>
+  </div>
+</div>
