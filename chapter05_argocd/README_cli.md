@@ -420,7 +420,7 @@ networking.k8s.io  Ingress     argocd-helm  app-ingress-by-nginx  Synced   Healt
 ```
 ブラウザで
 http://helm.argocd.example.com
-アクセスして確認してみてください。Helmを使ってデプロイが出来ている事が確認できます。
+アクセスして青いタイルのアプリが動いていることが確認できます。こちらでHelmを使ってデプロイが出来ている事が確認できます。
 
 ## 作成したデモアプリケーションを削除
 作成したアプリケーションを削除していきます。
