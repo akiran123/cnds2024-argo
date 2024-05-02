@@ -1,41 +1,55 @@
-/* CSSコード */
-.tabs {
-  width: 500px;
-  margin: auto;
-  flex-wrap: wrap;
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+p{
+  margin: 0;
+}
+.wrap-tab{
+  overflow: hidden;
+}
+.tab-radio{
+  display: none;
+}
+.list-tab-label{
   display: flex;
+  margin: 0 -2px;
+  border-bottom: 3px solid #5bbee5;
 }
- 
-.tab_class {
-  width: calc(100%/5);
-  height: 50px;
-  background-color: #eee;
-  line-height: 50px;
-  font-size: 15px;
-  text-align: center;
-  display: block;
-  float: left;
-  order: -1;
-}
- 
-input[name="tab_name"] {
-  display: none;
-}
- 
-input:checked + .tab_class {
-  background-color: cadetblue;
-  color: aliceblue;
-}
- 
-.content_class {
-  display: none;
+.list-tab-label > li{
+  margin: 0 2px;
   width: 100%;
-  border-bottom: 3px solid #eee;
-  border-right: 3px solid #eee;
-  border-left: 3px solid #eee;
-  padding: 30px 10px;
+  text-align: center;
 }
- 
-input:checked + .tab_class + .content_class {
+.tab-label{
   display: block;
+  padding: 0.5em 1em;
+  color: #fff;
+  background: #ccc;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+#tab-radio1:checked ~ .list-tab-label #tab-label1,
+#tab-radio2:checked ~ .list-tab-label #tab-label2,
+#tab-radio3:checked ~ .list-tab-label #tab-label3,
+#tab-radio4:checked ~ .list-tab-label #tab-label4{
+  background: #5bbee5;
+  
+}
+
+.tab-content{
+  display: none;
+  padding: 1em;
+  border-bottom: 1px solid #5bbee5;
+  border-left: 1px solid #5bbee5;
+  border-right: 1px solid #5bbee5;
+}
+#tab-radio1:checked ~ .wrap-tab-content #tab-content1,
+#tab-radio2:checked ~ .wrap-tab-content #tab-content2,
+#tab-radio3:checked ~ .wrap-tab-content #tab-content3,
+#tab-radio4:checked ~ .wrap-tab-content #tab-content4{
+  display: block;
+
 }
