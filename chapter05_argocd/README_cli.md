@@ -72,7 +72,10 @@ Create fork をクリックします
 ![fork3](image/setup/fork-3-new.png)
 
 GitHubのリポジトリの登録やPushはforkした自身のリポジトリを利用して下さい
+
+
 ### argocd cliのインストール
+こちらはじしんの端末で実施してください。
 https://argo-cd.readthedocs.io/en/stable/cli_installation/
 #### Linux
 ```
@@ -112,6 +115,7 @@ $version = (Invoke-RestMethod https://api.github.com/repos/argoproj/argo-cd/rele
 ```
 
 ### Argo CDのインストール
+こちらのインストールは、VM上で実施します。
 helmファイルを利用してArgo CDをインストールします。
 ```
 helmfile sync  -f helm/helmfile.yaml
@@ -147,8 +151,9 @@ kubectl apply -f ingress/ingress.yaml
     * `kubectl -n argo-cd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d ; echo`
 
 ## argocdへログイン
+こちらはじしんの端末で実施してください。
 ```
-argocd login --insecure argocd.vmXX.handson.cloudnativedays.jp
+argocd login --insecure argocd.example.com
 ```
 ログイン成功時
 ```
