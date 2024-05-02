@@ -7,10 +7,30 @@
     
   <div class="tab_content" id="tab01_content">
     <p>タブ01の内容を表示しています。</p>
+
+
+
+    <h1>実行結果</h1>
+<p>NAME                                               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
+service/argo-cd-argocd-applicationset-controller   ClusterIP   10.96.209.173   <none>        7000/TCP            26d
+service/argo-cd-argocd-dex-server                  ClusterIP   10.96.116.27    <none>        5556/TCP,5557/TCP   26d
+service/argo-cd-argocd-redis                       ClusterIP   10.96.28.90     <none>        6379/TCP            26d
+service/argo-cd-argocd-repo-server                 ClusterIP   10.96.249.188   <none>        8081/TCP            26d
+service/argo-cd-argocd-server                      ClusterIP   10.96.152.238   <none>        80/TCP,443/TCP      26d</p>
+<p>NAME                                                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/argo-cd-argocd-applicationset-controller   1/1     1            1           26d
+deployment.apps/argo-cd-argocd-dex-server                  1/1     1            1           26d
+deployment.apps/argo-cd-argocd-notifications-controller    1/1     1            1           26d
+deployment.apps/argo-cd-argocd-redis                       1/1     1            1           26d
+deployment.apps/argo-cd-argocd-repo-server                 1/1     1            1           26d
+deployment.apps/argo-cd-argocd-server                      1/1     1            1           26d</p>
+<pre><code>ingressを作成し、Argo CDのWEB UIにアクセス出来るようにします。
+</code></pre>
+<p>kubectl apply -f ingress/ingress.yaml
+```</p>
+
+
     
-#### **Argo CD with argocli**
-# Argo CD
-この章では、Kubernetes上でGitOpsを可能とするCDツールであるArgo CDについて紹介し、導入します。
     
   </div>
   <div class="tab_content" id="tab02_content">
