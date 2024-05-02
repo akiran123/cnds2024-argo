@@ -7,7 +7,7 @@
 <br><br>
 
 
-
+<!-- tabs:end -->
 <!-- tabs:start -->
 
 
@@ -728,11 +728,6 @@ argocd app delete argocd-helm
 ```
 kubectl delete namespace argocd-demo argocd-kustomize-dev argocd-kustomize-prd argocd-helm
 ```
-
-
-<!-- tabs:end -->
-
-
 
 
 <!-- tabs:end -->
