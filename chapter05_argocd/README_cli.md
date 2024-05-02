@@ -230,7 +230,7 @@ networking.k8s.io  Ingress     argocd-demo  app-ingress-by-nginx  Synced   Healt
 ![sync](./image/demoapp/sync.png)
 ブラウザから
 http://argocd.example.com
-へアクセスして確認してみてください。アプリケーションが表示され青い色のタイルが出てくるのが確認できます。
+へアクセスして確認します。するとアプリケーションが表示され青い色のタイルが出てくるのが確認できます。
 
 ![demo app](./image/demoapp/demo-app.png)
 
