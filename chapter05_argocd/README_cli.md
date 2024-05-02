@@ -162,7 +162,7 @@ WARN[0000] Failed to invoke grpc call. Use flag --grpc-web in grpc calls. To avo
 Username: admin
 Password: (上記kubectlを実行して返ってきた値)
 'admin:login' logged in successfully
-Context 'argocd.vmXX.handson.cloudnativedays.jp' updated
+Context 'argocd.example.com' updated
 ```
 以下のように、WebUIでログインした状態と同じです。
 ![webui](./image/setup/access-webui.png)
@@ -229,7 +229,7 @@ networking.k8s.io  Ingress     argocd-demo  app-ingress-by-nginx  Synced   Healt
 
 ![sync](./image/demoapp/sync.png)
 ブラウザから
-http://app.argocd.vmXX.handson.cloudnativedays.jp
+http://argocd.example.com
 へアクセスして確認してみてください。アプリケーションが表示され青い色のタイルが出てくるのが確認できます。
 
 ![demo app](./image/demoapp/demo-app.png)
@@ -255,7 +255,7 @@ argocd app sync argocd-demo
 ![blue2green](image/demoapp/blue2green.png)
 Gitの変更をKubernetes Clusterに反映させるためにページ上部にあるSYNCをクリックして、下記のように表示されていることを確認して下さい。
 ![blue2green](image/demoapp/blue2green-sync.png)
-http://app.argocd.vmXX.handson.cloudnativedays.jp
+http://app.argocd.example.com
 へアクセスして確認するとタイルが青から緑に変わったことが確認できます。
 ![blue2green](image/demoapp/blue2green-demoapp.png)
 <br>
@@ -305,7 +305,7 @@ Name:               argocd/argocd-kustomize-dev
 Project:            default
 Server:             https://kubernetes.default.svc
 Namespace:          argocd-kustomize-dev
-URL:                https://dev.kustomize.argocd.vmXX.handson.cloudnativedays.jp/applications/argocd-kustomize-dev
+URL:                https://dev.kustomize.argocd.example.com/applications/argocd-kustomize-dev
 Repo:               https://github.com/自身のアカウント/cnd-handson
 Target:
 Path:               chapter05_argocd/app/Kustomize/overlays/dev
@@ -337,7 +337,7 @@ Name:               argocd/argocd-kustomize-prd
 Project:            default
 Server:             https://kubernetes.default.svc
 Namespace:          argocd-kustomize-prd
-URL:                http://prd.kustomize.argocd.vmXX.handson.cloudnativedays.jp/applications/argocd-kustomize-prd
+URL:                http://prd.kustomize.argocd.example.com/applications/argocd-kustomize-prd
 Repo:               https://github.com/自身のアカウント/cnd-handson
 Target:
 Path:               chapter05_argocd/app/Kustomize/overlays/prd
@@ -353,8 +353,8 @@ networking.k8s.io  Ingress     argocd-kustomize-prd  app-ingress-by-nginx  Synce
 ```
 
 ブラウザで各環境へアクセスして確認してみてください。タイルの色が開発環境と本番環境で違う事が確認できます。
-  * 開発環境: http://dev.kustomize.argocd.vmXX.handson.cloudnativedays.jp
-  * 本番環境: http://prd.kustomize.argocd.vmXX.handson.cloudnativedays.jp
+  * 開発環境: http://dev.kustomize.argocd.example.com
+  * 本番環境: http://prd.kustomize.argocd.example.com
 
 WebUIでも確認してみると、argocd-kustomise-dev/argocd-kustomise-prdの２つのアプリケーションが追加されています。
 ![Kustomize-create](image/demoapp/Kustomize-create.png)
@@ -403,7 +403,7 @@ Name:               argocd/argocd-helm
 Project:            default
 Server:             https://kubernetes.default.svc
 Namespace:          argocd-helm
-URL:                http://helm.argocd.vmXX.handson.cloudnativedays.jp/applications/argocd-helm
+URL:                http://helm.argocd.example.com/applications/argocd-helm
 Repo:               https://github.com/akiran123/cnd-handson
 Target:
 Path:               chapter05_argocd/app/Helm/rollouts-demo
@@ -419,7 +419,7 @@ apps               Deployment  argocd-helm  handson               Synced   Healt
 networking.k8s.io  Ingress     argocd-helm  app-ingress-by-nginx  Synced   Healthy            ingress.networking.k8s.io/app-ingress-by-nginx created
 ```
 ブラウザで
-http://helm.argocd.vmXX.handson.cloudnativedays.jp
+http://helm.argocd.example.com
 アクセスして確認してみてください。Helmを使ってデプロイが出来ている事が確認できます。
 
 ## 作成したデモアプリケーションを削除
