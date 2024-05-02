@@ -1,18 +1,47 @@
-<div class="tabs">
-  <input id="tab01" type="radio" name="tab_switch" checked>
-  <label class="tab_label" for="tab01">タブ01</label>
-  <input id="tab02" type="radio" name="tab_switch">
-  <label class="tab_label" for="tab02">タブ02</label>
-  <input id="tab03" type="radio" name="tab_switch">
-  <label class="tab_label" for="tab03">タブ03</label>
-    
-  <div class="tab_content" id="tab01_content">
-    <p>タブ01の内容を表示しています。</p>
-  </div>
-  <div class="tab_content" id="tab02_content">
-    <p>タブ02の内容を表示しています。</p>
-  </div>
-  <div class="tab_content" id="tab03_content">
-    <p>タブ03の内容を表示しています。</p>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./resources/styles/destyle.css" />
+    <link rel="stylesheet" href="./resources/styles/style.css" />
+  </head>
+  <body>
+    <div class="TabMenu">
+      <ul class="Tabs">
+        <li data-id="Content1" class="Tab Tab__isActive">タブ1</li>
+        <li data-id="Content2" class="Tab">タブ2</li>
+        <li data-id="Content3" class="Tab">タブ3</li>
+      </ul>
+      <ul class="Contents">
+        <li id="Content1" class="Content Content__isActive">
+          1番目のコンテンツ
+        </li>
+        <li id="Content2" class="Content">2番目のコンテンツ</li>
+        <li id="Content3" class="Content">3番目のコンテンツ</li>
+      </ul>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const tabs = $(".Tab")
+      const contents = $(".Content")
+
+      tabs.on("click", function () {
+        tabs.removeClass("Tab__isActive")
+        contents.removeClass("Content__isActive")
+
+        const clickedTab = $(this)
+        clickedTab.addClass("Tab__isActive")
+
+        const id = "#" + clickedTab.data("id")
+        $(id).addClass("Content__isActive")
+      })
+    </script>
+  </body>
+</html>
