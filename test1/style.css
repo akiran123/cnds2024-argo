@@ -50,7 +50,7 @@ input[name="tab_switch"] {
 
 #tab01:checked ~ #tab01_content,
 #tab02:checked ~ #tab02_content,
-#tab03:checked ~ #tab03_content {
+{
   display: block;
 }
 
