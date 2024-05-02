@@ -206,23 +206,24 @@ argocd app get argocd-demo
 argocd-demoアプリケーションが動作していること
 ```
 # 実行結果例
-Name:               argocd/argocd-demo
+Name:               argo-cd/argocd-demo
 Project:            default
 Server:             https://kubernetes.default.svc
 Namespace:          argocd-demo
-URL:                https://argo.argocd.vmXX.handson.cloudnativedays.jp/applications/argocd-demo
+URL:                https://argocd.example.com/applications/argocd-demo
 Repo:               https://github.com/akiran123/cnd-handson
 Target:
 Path:               chapter05_argocd/app/default
 SyncWindow:         Sync Allowed
 Sync Policy:        <none>
-Sync Status:        Synced to  (6f6c4ef)
-Health Status:      Progressing
+Sync Status:        Synced to  (935fc73)
+Health Status:      Healthy
 
-GROUP              KIND        NAMESPACE    NAME                  STATUS  HEALTH       HOOK  MESSAGE
-                   Service     argocd-demo  handson               Synced  Healthy            service/handson created
-apps               Deployment  argocd-demo  handson               Synced  Healthy            deployment.apps/handson created
-networking.k8s.io  Ingress     argocd-demo  app-ingress-by-nginx  Synced  Healthy            ingress.networking.k8s.io/app-ingress-by-nginx created
+GROUP              KIND        NAMESPACE    NAME                  STATUS   HEALTH   HOOK  MESSAGE
+                   Namespace                argocd-demo           Running  Synced         namespace/argocd-demo created
+                   Service     argocd-demo  handson               Synced   Healthy        service/handson created
+apps               Deployment  argocd-demo  handson               Synced   Healthy        deployment.apps/handson created
+networking.k8s.io  Ingress     argocd-demo  app-ingress-by-nginx  Synced   Healthy        ingress.networking.k8s.io/app-ingress-by-nginx created
 ```
 
 
