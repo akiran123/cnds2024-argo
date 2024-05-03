@@ -1,4 +1,4 @@
-* **Argo CD**
+* ***Argo CD**
 
 * [Argo CD with WebUI](README_WebUI.md)
 * [Argo CD with CLI](README_cli.md)
