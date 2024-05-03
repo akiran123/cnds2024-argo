@@ -1,4 +1,3 @@
-#### **Argo CD with argocli**
 # Argo CD with argocli
 この章では、Kubernetes上でGitOpsを可能とするCDツールであるArgo CDについて紹介し、導入します。
 
