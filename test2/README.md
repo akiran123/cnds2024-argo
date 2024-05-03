@@ -1,15 +1,4 @@
-### TTこちらではArgoCDのインストールを行います。
-### 今回２パターンでの方法を準備しています。
-
-
-### https://akiran123.github.io/cnds2024-argo/chapter05_argocd/#/ にアクセスしてもらえれば、
-### TAB（Argo CD with GUI or Argo CD with argocli）を選択することで選ぶことができます。
-<br><br>
-
-
-<!-- tabs:end -->
 <!-- tabs:start -->
-
 
 #### **Argo CD with GUI**
 
