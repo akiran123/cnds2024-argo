@@ -22,7 +22,14 @@
     // Docsify Configuration (see https://docsify.js.org/#/configuration)
     window.$docsify = {
       name: 'Simple Docsify Template',
-
+  markdown: {
+    smartypants: true,
+    renderer: {
+      link: function () {
+        // ...
+      },
+    },
+  },
       tabs: {
       persist: true, // default
      sync: true, // default
