@@ -1,67 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
-
-  <!-- Replace with your own title and description. -->
-  <title>Awesome Docsify Site</title>
-  <meta name="description" content="An awesome docsify site for publishing some content on the web.">
-
-  <!-- Default Theme (see https://docsify.js.org/#/themes) -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed Markdown Viewer</title>
+    <style>
+        /* タブのスタイル */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        
+        /* タブのボタン */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        
+        /* タブのボタンの色 */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        
+        /* コンテンツの表示/非表示 */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
 </head>
-
 <body>
-  <div id="app"></div>
 
-<!-- index.html -->
+<div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'page1')">Page 1</button>
+    <button class="tablinks" onclick="openTab(event, 'page2')">Page 2</button>
+    <!-- 追加のタブボタンがあればここに追加 -->
+</div>
+
+<div id="page1" class="tabcontent">
+    <iframe src="https://yourusername.github.io/yourrepository/page1.md" style="width:100%; height:500px;"></iframe>
+</div>
+
+<div id="page2" class="tabcontent">
+    <iframe src="https://yourusername.github.io/yourrepository/page2.md" style="width:100%; height:500px;"></iframe>
+</div>
+<!-- 追加のタブページがあればここに追加 -->
 
 <script>
-  window.$docsify = {
-    loadSidebar: true
-  }
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
 </script>
-<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
 
-  
-      // Sidebar Configuration
-      auto2top: true,
-      loadSidebar: true,
-      maxLevel: 0,
-      // Set subMaxLevel to 0 to remove automatic display of page table of contents (TOC) in Sidebar
-      subMaxLevel: 3,
-
-      // Search Plugin Configuration
-      search: {
-        placeholder: 'Type to search',
-        noData: 'No matches found.',
-        // Headline depth, 1 - 6
-        depth: 2,
-      }
-    };
-  </script>
-
-  <!-- Required -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
-
-  <!-- Recommended -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/rizdaprasetya/docsify-fix-pageload-scroll@master/index.js"></script>
-  <!-- docsify (latest v4.x.x)-->
-<script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
-
-<!-- docsify-tabs (latest v1.x.x) -->
-<script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
-//<style>
-  //:root {
-    //--docsifytabs-border-color: #ededed;
-    //--docsifytabs-tab-highlight-color: purple;
- // }
-</style>
 </body>
 </html>
+
