@@ -1,5 +1,3 @@
-#### **Argo CD with GUI**
-
 # Argo CD with GUI
 この章では、Kubernetes上でGitOpsを可能とするCDツールであるArgo CDについて紹介し、導入します。
 
