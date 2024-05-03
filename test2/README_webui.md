@@ -1,5 +1,3 @@
-<!-- tabs:start -->
-
 #### **Argo CD with GUI**
 
 # Argo CD with GUI
