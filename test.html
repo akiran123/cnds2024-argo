@@ -1,30 +1,19 @@
 <!DOCTYPE html>
-<title>GitHub Markdown CSS</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-<link rel="stylesheet" href="https://sindresorhus.com/github-markdown-css/github-markdown.css">
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<div id="mdrender" class="markdown-body"></div>
+<script src="https://cdn.rawgit.com/chjj/marked/master/marked.min.js"></script>
+<div id="mdrender"></div>
 <div id="mdraw" style="display:none;">
-# 見出し1
-## 見出し2
-### 見出し3
-#### 見出し4
-##### 見出し5
-###### 見出し6
-*italic*
-**太字**
-**bold and _italic_**
-~~取り消し線~~
-[リンク (GitHub)](https://github.com/)
-1. 富士
-2. 鷹
-3. 茄子
-- 箇条書き1
-    - 箇条書き2
-        - 箇条書き3
+## ここにMarkdownの記述で本文を書いていく  
 
-> 吾輩は猫である。
-> 名前はまだ無い。
+　```
+画像を使うときは<img>タグを使う
+　```
+
+1. aa
+1. bb
+
+
 </div>
-
+<script>
+  document.getElementById("mdrender").innerHTML = marked(document.getElementById("mdraw").innerHTML);
+</script>
