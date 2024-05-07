@@ -3,30 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markdown to HTML</title>
-    <!-- Marked.jsのスクリプトを読み込む -->
+    <title>marked.js Example</title>
   <script src="./marked.min.js"></script>
 </head>
 <body>
     <div id="markdown-content"></div>
 
     <script>
-        // MarkdownをHTMLに変換する関数
-        function convertMarkdownToHTML() {
-            var markdownContent = `
-                # Hello, Markdown123!
-
-                This is a **Markdown** example using *Marked.js*.
-            `;
-            var htmlContent = marked(markdownContent);
-            document.getElementById("markdown-content").innerHTML = htmlContent;
-        }
-
-        // ページが読み込まれたらMarkdownをHTMLに変換する
-        window.onload = function() {
-            convertMarkdownToHTML();
-        };
+        // ここでmarked.jsを使ってMarkdownをHTMLに変換し、指定した要素に挿入する
+        var markdownContent = "### test";
+        var htmlContent = marked(markdownContent);
+        document.getElementById("markdown-content").innerHTML = htmlContent;
     </script>
 </body>
 </html>
-
