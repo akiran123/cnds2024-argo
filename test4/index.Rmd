@@ -1,11 +1,7 @@
 ---
-title: トップページ名
+title: "My Website"
 ---
 
-## index
+Hello, Website!
 
-### さんぷる
-
-- ほげ
-- ふが
 
