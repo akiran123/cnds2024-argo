@@ -1,53 +1,31 @@
-## タブ切り替えのデモ
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown to HTML</title>
+    <!-- Marked.jsのスクリプトを読み込む -->
+    <script src="./marked.min.js"></script>
+</head>
+<body>
+    <div id="markdown-content"></div>
 
-<div class="tabs">
-    <input type="radio" name="tab" id="tab1" checked>
-    <label for="tab1">タブ1</label>
-    
-    <input type="radio" name="tab" id="tab2">
-    <label for="tab2">タブ2</label>
-    
-    <div class="tab-content" id="content1">
-        ここにはタブ1の内容が表示されます。
-    </div>
-    
-    <div class="tab-content" id="content2">
-        ここにはタブ2の内容が表示されます。
-    </div>
-</div>
+    <script>
+        // MarkdownをHTMLに変換する関数
+        function convertMarkdownToHTML() {
+            var markdownContent = `
+                # Hello, Markdown!
 
-<style>
-/* タブのスタイル */
-.tabs {
-  position: relative;
-  margin-top: 20px;
-}
+                This is a **Markdown** example using *Marked.js*.
+            `;
+            var htmlContent = marked(markdownContent);
+            document.getElementById("markdown-content").innerHTML = htmlContent;
+        }
 
-/* タブのラベルのスタイル */
-.tabs label {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 5px 5px 0 0;
-  background: #f2f2f2;
-  cursor: pointer;
-}
-
-/* タブのコンテンツのスタイル */
-.tabs .tab-content {
-  display: none;
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 0 0 5px 5px;
-}
-
-/* タブが選択されたときのスタイル */
-.tabs input[type="radio"]:checked + label {
-  background: #fff;
-}
-
-/* 選択されたタブのコンテンツを表示 */
-#tab1:checked ~ #content1,
-#tab2:checked ~ #content2 {
-  display: block;
-}
-</style>
+        // ページが読み込まれたらMarkdownをHTMLに変換する
+        window.onload = function() {
+            convertMarkdownToHTML();
+        };
+    </script>
+</body>
+</html>
