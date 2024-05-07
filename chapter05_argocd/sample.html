@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stylish Tab Navigation</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+    }
+
+    .tab {
+        display: none;
+        padding: 20px;
+    }
+
+    .tab.active {
+        display: block;
+    }
+
+    .tab-buttons {
+        background-color: #333;
+        overflow: hidden;
+    }
+
+    .tab-button {
+        float: left;
+        cursor: pointer;
+        padding: 10px 20px;
+        color: white;
+        transition: background-color 0.3s;
+    }
+
+    .tab-button:hover {
+        background-color: #555;
+    }
+</style>
+</head>
+<body>
+
+<div class="tab-buttons">
+    <div class="tab-button" onclick="openTab(event, 'ArgoCD with WebUI')">ArgoCD with WebUI</div>
+    <div class="tab-button" onclick="openTab(event, 'ArgoCD with CLI')">ArgoCD with CLI</div>
+</div>
+
+<div id="ArgoCD with WebUI" class="tab active">
+    <h2>Tab 1 Content</h2>
+    <p>This is the content of ArgoCD with WebUI.</p>
+    <a href="https://github.com/akiran123/cnds2024-argo/blob/gh-pages/test3/README_webui.md">Go to ArgoCD with WEBUI page</a>
+</div>
+<div id="ArgoCD with CLI" class="tab">
+    <h2>Tab 2 Content</h2>
+    <p>This is the content of ArgoCD with CLI.</p>
+    <a href="https://github.com/akiran123/cnds2024-argo/blob/gh-pages/test3/README_cli.md">Go to ArgoCD with CLI page</a>
+</div>
+
+<script>
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tab-button");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// 最初のタブを開く
+document.getElementById("tab1").style.display = "block";
+document.getElementsByClassName("tab-button")[0].className += " active";
+</script>
+
+</body>
+</html>
