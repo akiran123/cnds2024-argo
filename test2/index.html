@@ -3,73 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabbed Markdown Viewer</title>
-    <style>
-        /* タブのスタイル */
-        .tab {
-            overflow: hidden;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
-        }
-        
-        /* タブのボタン */
-        .tab button {
-            background-color: inherit;
-            float: left;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 14px 16px;
-            transition: 0.3s;
-        }
-        
-        /* タブのボタンの色 */
-        .tab button:hover {
-            background-color: #ddd;
-        }
-        
-        /* コンテンツの表示/非表示 */
-        .tabcontent {
-            display: none;
-            padding: 6px 12px;
-            border: 1px solid #ccc;
-            border-top: none;
-        }
-    </style>
+    <title>Markdown to HTML</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- MarkedライブラリのCDNを読み込む -->
 </head>
 <body>
+    <div id="markdownContent">
+        # This is a Markdown heading
+        This is a paragraph in **Markdown**.
+    </div>
 
-<div class="tab">
-    <button class="tablinks" onclick="openTab(event, 'page1')">Page 1</button>
-    <button class="tablinks" onclick="openTab(event, 'page2')">Page 2</button>
-    <!-- 追加のタブボタンがあればここに追加 -->
-</div>
-
-<div id="page1" class="tabcontent">
-    <iframe src="https://github.com/akiran123/cnds2024-argo/blob/main/test2/README_webui.md" style="width:100%; height:500px;"></iframe>
-</div>
-
-<div id="page2" class="tabcontent">
-    <iframe src="https://github.com/akiran123/cnds2024-argo/blob/main/test2/README_cli.md" style="width:100%; height:500px;"></iframe>
-</div>
-<!-- 追加のタブページがあればここに追加 -->
-
-<script>
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
+    <script>
+        // MarkdownをHTMLに変換する関数
+        function convertMarkdownToHTML() {
+            var markdownContent = document.getElementById('markdownContent').innerHTML;
+            var htmlContent = marked(markdownContent);
+            document.getElementById('markdownContent').innerHTML = htmlContent;
         }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-</script>
 
+        // ページ読み込み時に変換を実行
+        window.onload = function() {
+            convertMarkdownToHTML();
+        };
+    </script>
 </body>
 </html>
-
