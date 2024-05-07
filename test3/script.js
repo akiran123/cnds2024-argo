@@ -18,5 +18,5 @@ function convertMarkdownFileToHTML(markdownFilePath) {
 
 // ページが読み込まれたらMarkdownファイルをHTMLに変換する
 window.onload = function() {
-    convertMarkdownFileToHTML("example.md");
+    convertMarkdownFileToHTML("Tab1.md");
 };
