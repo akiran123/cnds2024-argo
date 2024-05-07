@@ -10,13 +10,6 @@ function openTab(evt, tabName) {
   }
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
-
-  // Load markdown content
-  fetch(tabName + ".md")
-    .then(response => response.text())
-    .then(text => {
-      document.getElementById(tabName).innerHTML = marked(text);
-    });
 }
 
 // Open default tab on page load
