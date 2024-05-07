@@ -1,34 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabbed Page</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<title>GitHub Markdown CSS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" href="https://sindresorhus.com/github-markdown-css/github-markdown.css">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<div id="mdrender" class="markdown-body"></div>
+<div id="mdraw" style="display:none;">
+# 見出し1
+## 見出し2
+### 見出し3
+#### 見出し4
+##### 見出し5
+###### 見出し6
+*italic*
+**太字**
+**bold and _italic_**
+~~取り消し線~~
+[リンク (GitHub)](https://github.com/)
+1. 富士
+2. 鷹
+3. 茄子
+- 箇条書き1
+    - 箇条書き2
+        - 箇条書き3
 
-<div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'Tab1')">Tab 1</button>
-  <button class="tablinks" onclick="openTab(event, 'Tab2')">Tab 2</button>
-  <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button>
+> 吾輩は猫である。
+> 名前はまだ無い。
 </div>
-
-<div id="Tab1" class="tabcontent">
-  <h3>Tab1 Content</h3>
-  <p>test</p>
-</div>
-
-<div id="Tab2" class="tabcontent">
-  <h3>Tab 2 Content</h3>
-  <p>This is the content of tab 2.</p>
-</div>
-
-<div id="Tab3" class="tabcontent">
-  <h3>Tab 3 Content</h3>
-  <p>This is the content of tab 3.</p>
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
+<script>
+  document.getElementById("mdrender").innerHTML = marked(document.getElementById("mdraw").innerHTML.replace(/&gt;+/g, '>'));
+</script>
