@@ -21,7 +21,7 @@ function loadMarkdown(tabName) {
   fetch(tabName + ".md")
     .then(response => response.text())
     .then(text => {
-      var html = marked(text);
+      var html = marked.parse(text);
       document.getElementById(tabName).innerHTML = html;
     })
     .catch(error => console.error('Error fetching markdown:', error));
