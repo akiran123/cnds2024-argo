@@ -1,31 +1,35 @@
 <!DOCTYPE html>
-<title>Markdown</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<div id="mdrender"></div>
-<div id="mdraw" style="display:none;">
-# 見出し1
-## 見出し2
-### 見出し3
-#### 見出し4
-##### 見出し5
-###### 見出し6
-*italic*
-**太字**
-**bold and _italic_**
-~~取り消し線~~
-[リンク (GitHub)](https://github.com/)
-1. 富士
-2. 鷹
-3. 茄子
-- 箇条書き1
-    - 箇条書き2
-        - 箇条書き3
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown to HTML</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <!-- Markdown content -->
+  <textarea id="markdown-content">
+# Hello, Markdown!
 
-> 吾輩は猫である。
-> 名前はまだ無い。
-</div>
-<script>
-  document.getElementById("mdrender").innerHTML = marked(document.getElementById("mdraw").innerHTML.replace(/&gt;+/g, '>'));
-</script>
+This is a **Markdown** example.
+
+- List item 1
+- List item 2
+- List item 3
+  </textarea>
+
+  <!-- Display HTML content -->
+  <div id="html-content"></div>
+
+  <script>
+    // Get Markdown content
+    var markdownContent = document.getElementById('markdown-content').value;
+
+    // Convert Markdown to HTML
+    var htmlContent = marked(markdownContent);
+
+    // Display HTML content
+    document.getElementById('html-content').innerHTML = htmlContent;
+  </script>
+</body>
+</html>
