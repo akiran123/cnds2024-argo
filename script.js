@@ -21,7 +21,7 @@ function loadMarkdown(tabName) {
   fetch(tabName + ".md")
     .then(response => response.text())
     .then(text => {
-      var html = marked(text); // marked()関数を使用してMarkdownをHTMLに変換
+      var html = marked(text);
       document.getElementById(tabName).innerHTML = html;
     })
     .catch(error => console.error('Error fetching markdown:', error));
