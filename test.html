@@ -1,19 +1,61 @@
 <!DOCTYPE html>
-<meta charset="UTF-8">
-<script src="https://cdn.rawgit.com/chjj/marked/master/marked.min.js"></script>
-<div id="mdrender"></div>
-<div id="mdraw" style="display:none;">
-## ここにMarkdownの記述で本文を書いていく  
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Page with marked.js</title>
+  <!-- marked.jsをCDN経由で読み込む -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- スタイルシート -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-　```
-画像を使うときは<img>タグを使う
-　```
-
-1. aa
-1. bb
-
-
+<!-- タブ -->
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Tab1')">Tab 1</button>
+  <button class="tablinks" onclick="openTab(event, 'Tab2')">Tab 2</button>
+  <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button>
 </div>
+
+<!-- タブのコンテンツ -->
+<div id="Tab1" class="tabcontent"></div>
+<div id="Tab2" class="tabcontent"></div>
+<div id="Tab3" class="tabcontent"></div>
+
 <script>
-  document.getElementById("mdrender").innerHTML = marked(document.getElementById("mdraw").innerHTML);
+  // タブ切り替え時の処理
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+
+    // marked.jsを読み込んだ後に処理を行う
+    loadMarkdown(tabName);
+  }
+
+  // Markdownファイルを読み込んでHTMLに変換し、コンテンツを表示する
+  function loadMarkdown(tabName) {
+    fetch(tabName + ".md")
+      .then(response => response.text())
+      .then(text => {
+        var html = marked(text); // marked()関数を使用してMarkdownをHTMLに変換
+        document.getElementById(tabName).innerHTML = html;
+      })
+      .catch(error => console.error('Error fetching markdown:', error));
+  }
+
+  // 初期状態で最初のタブを開く
+  document.getElementsByClassName("tablinks")[0].click();
 </script>
+
+</body>
+</html>
