@@ -11,7 +11,11 @@
 
     <script>
         // ここでmarked.jsを使ってMarkdownをHTMLに変換し、指定した要素に挿入する
-        var markdownContent = "### test";
+        var markdownContent = `
+                # Hello, Markdown!
+
+                This is a **Markdown** example using *Marked.js*.
+            `;
         var htmlContent = marked(markdownContent);
         document.getElementById("markdown-content").innerHTML = htmlContent;
     </script>
