@@ -1,73 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabbed Markdown Viewer</title>
-    <style>
-        /* タブのスタイル */
-        .tab {
-            overflow: hidden;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
-        }
-        
-        /* タブのボタン */
-        .tab button {
-            background-color: inherit;
-            float: left;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 14px 16px;
-            transition: 0.3s;
-        }
-        
-        /* タブのボタンの色 */
-        .tab button:hover {
-            background-color: #ddd;
-        }
-        
-        /* コンテンツの表示/非表示 */
-        .tabcontent {
-            display: none;
-            padding: 6px 12px;
-            border: 1px solid #ccc;
-            border-top: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stylish Tab Navigation</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+    }
+
+    .tab {
+        display: none;
+        padding: 20px;
+    }
+
+    .tab.active {
+        display: block;
+    }
+
+    .tab-buttons {
+        background-color: #333;
+        overflow: hidden;
+    }
+
+    .tab-button {
+        float: left;
+        cursor: pointer;
+        padding: 10px 20px;
+        color: white;
+        transition: background-color 0.3s;
+    }
+
+    .tab-button:hover {
+        background-color: #555;
+    }
+</style>
 </head>
 <body>
 
-<div class="tab">
-    <button class="tablinks" onclick="openTab(event, 'page1')">Page 1</button>
-    <button class="tablinks" onclick="openTab(event, 'page2')">Page 2</button>
-    <!-- 追加のタブボタンがあればここに追加 -->
+<div class="tab-buttons">
+    <div class="tab-button" onclick="openTab(event, 'ArgoCD with WEBUI')">ArgoCD with WEBUI</div>
+    <div class="tab-button" onclick="openTab(event, 'ArgoCD with CLI')">ArgoCD with CLI</div>
 </div>
 
-<div id="page1" class="tabcontent">
-    <iframe src="https://github.com/akiran123/cnds2024-argo/blob/main/test2/README_webui.md" style="width:100%; height:500px;"></iframe>
+<div id="tab1" class="tab active">
+    <h2>Tab 1 Content</h2>
+    <p>This is the content of ArgoCD with WEBUI.</p>\
+    
 </div>
-
-<div id="page2" class="tabcontent">
-    <iframe src="https://github.com/akiran123/cnds2024-argo/blob/main/test2/README_cli.md" style="width:100%; height:500px;"></iframe>
+<div id="tab2" class="tab">
+    <h2>Tab 2 Content</h2>
+    <p>This is the content of ArgoCD with CLI.</p>
 </div>
-<!-- 追加のタブページがあればここに追加 -->
 
 <script>
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
     }
+    tablinks = document.getElementsByClassName("tab-button");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// 最初のタブを開く
+document.getElementById("ArgoCD with WEBUI").style.display = "block";
+document.getElementsByClassName("tab-button")[0].className += " active";
 </script>
 
 </body>
