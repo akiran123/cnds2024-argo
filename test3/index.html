@@ -19,7 +19,7 @@
 
                 This is a **Markdown** example using *Marked.js*.
             `;
-            var htmlContent = marked(markdownContent);
+            var htmlContent = marked_parse(markdownContent);
             document.getElementById("markdown-content").innerHTML = htmlContent;
         }
 
