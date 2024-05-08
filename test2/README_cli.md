@@ -76,7 +76,7 @@ GitHubのリポジトリの登録やPushはforkした自身のリポジトリを
 https://argo-cd.readthedocs.io/en/stable/cli_installation/
 
 <details><summary><b>Linux</b></summary>
-
+#### Linux
 ```
 ## Homebrew
 brew install argocd
@@ -88,6 +88,9 @@ curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/lat
 sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
 rm argocd-linux-amd64
 ```
+</details>
+
+<details><summary><b>Mac User</b></summary>
 #### Mac(M1)
 ```
 VERSION=$(curl --silent "https://api.github.com/repos/argoproj/argo-cd/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
@@ -107,12 +110,14 @@ curl -sSL -o argocd-darwin-amd64 https://github.com/argoproj/argo-cd/releases/do
 ```
 </details>
 
+<details><summary><b>Windows User</b></summary>
 #### Windows
 Download With PowerShell: Invoke-WebRequest
 ```
 $version = (Invoke-RestMethod https://api.github.com/repos/argoproj/argo-cd/releases/latest).tag_name
 [Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Path\To\ArgoCD-CLI", "User")
 ```
+</details>
 
 ### Argo CDのインストール
 こちらのインストールは、VM上で実施します。
