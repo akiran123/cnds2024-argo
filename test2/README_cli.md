@@ -75,7 +75,7 @@ GitHubのリポジトリの登録やPushはforkした自身のリポジトリを
 こちらはじしんの端末で実施してください。
 https://argo-cd.readthedocs.io/en/stable/cli_installation/
 
-<details><summary>#### Linux</summary>
+<details><summary>####Linux</summary>
 
 ```
 ## Homebrew
@@ -105,7 +105,7 @@ brew install argocd
 VERSION=$(curl --silent "https://api.github.com/repos/argoproj/argo-cd/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
 curl -sSL -o argocd-darwin-amd64 https://github.com/argoproj/argo-cd/releases/download/$VERSION/argocd-darwin-amd64
 ```
-</detail>
+</details>
 
 #### Windows
 Download With PowerShell: Invoke-WebRequest
