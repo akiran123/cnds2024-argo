@@ -75,7 +75,7 @@ GitHubのリポジトリの登録やPushはforkした自身のリポジトリを
 こちらはじしんの端末で実施してください。
 https://argo-cd.readthedocs.io/en/stable/cli_installation/
 
-<details><summary>####Linux</summary>
+<details><summary><b></b>Linux</summary>b)</summary>
 
 ```
 ## Homebrew
