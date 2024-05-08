@@ -75,7 +75,6 @@ GitHubのリポジトリの登録やPushはforkした自身のリポジトリを
 こちらはじしんの端末で実施してください。
 https://argo-cd.readthedocs.io/en/stable/cli_installation/
 
-<details><summary><b>Linux</b></summary> 
 #### Linux
 ```
 ## Homebrew
@@ -88,7 +87,7 @@ curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/lat
 sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
 rm argocd-linux-amd64
 ```
-</details>
+
 
 #### Mac(M1)
 ```
